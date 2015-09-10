@@ -22,7 +22,7 @@ Bash-Today uses the openweathermap api that can be found [here](http://openweath
 git clone https://github.com/BoredomIncarnate/Bash-Today
 ```
 
-Bash today requires [jq](https://stedolan.github.io/jq/). On Mac you can install it on [Homebrew](http://brew.sh)
+Bash-Today requires [jq](https://stedolan.github.io/jq/). On Mac you can install it on [Homebrew](http://brew.sh)
 
 ```
 brew install jq
@@ -34,7 +34,7 @@ Make it an executable
 chmod +x today.sh
 ```
 
-I prefer my scripts to be in /usr/local/bin and to rename the script to today
+I prefer my scripts to be in /usr/local/bin and to have no extensions
 
 ```
 mv yourFolder/Bash-Today/today.sh today
