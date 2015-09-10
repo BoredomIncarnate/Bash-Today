@@ -1,10 +1,17 @@
 #!/bin/bash
+if [ $# -eq 0 ]
+	then
+		echo "No arguments supplied."
+		echo "Please supply a zip code. i.e. today 11111"
+		exit 1
+fi
 MONTH=$(date '+%B')
 DAY=$(date '+%d')
 DAYM=""
 URL="http://api.openweathermap.org/data/2.5/weather?zip=$1,us"
-CITY=$(curl -s $URL | jq '.name')
-WEATHER=$(curl -s $URL | jq '.weather | .[] | .main')
+JSON=$(curl -s $URL)
+CITY=$(curl -s $URL | jq --raw-output '.name')
+WEATHER=$(curl -s $URL | jq --raw-output '.weather | .[] | .main')
 case $DAY in
 	01)
 		DAYM="1st"
