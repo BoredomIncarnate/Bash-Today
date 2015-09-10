@@ -2,8 +2,9 @@
 MONTH=$(date '+%B')
 DAY=$(date '+%d')
 DAYM=""
-TH="th"
-
+URL="http://api.openweathermap.org/data/2.5/weather?zip=$1,us"
+CITY=$(curl -s $URL | jq '.name')
+WEATHER=$(curl -s $URL | jq '.weather | .[] | .main')
 case $DAY in
 	01)
 		DAYM="1st"
@@ -97,4 +98,4 @@ case $DAY in
 		;;
 esac
 
-echo "Today is $MONTH the $DAYM"
+echo "Today is $MONTH the $DAYM, in the city of $CITY. The weather is $WEATHER."
